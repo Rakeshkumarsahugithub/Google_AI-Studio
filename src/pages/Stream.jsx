@@ -16,7 +16,7 @@ export default function Stream() {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#1e1e1e] text-white p-0 rounded-[2rem] mr-18">
+    <div className="min-h-screen bg-[#1e1e1e] text-white p-4 md:p-8 rounded-[2rem] mr-1 lg:mr-16">
       <div className="flex-1 flex flex-col p-4">
         {/* Chat Prompt Section */}
         <div className="flex justify-between items-center mb-4">
@@ -40,7 +40,7 @@ export default function Stream() {
           </div>
         </div>
 
-        {/* Line separator below Chat Prompt */}
+        {/* Line separator  */}
         <div className="border-b border-gray-600 mb-[100px]"></div> {/* 100px gap */}
 
         {/* Welcome Section */}
