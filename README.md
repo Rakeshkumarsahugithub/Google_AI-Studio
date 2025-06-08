@@ -35,5 +35,5 @@ A beautiful frontend clone of Google AI Studio built with modern web technologie
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/google-ai-studio-clone.git
-cd google-ai-studio-clone
+git clone https://github.com/Rakeshkumarsahugithub/Google_AI-Studio.git
+
