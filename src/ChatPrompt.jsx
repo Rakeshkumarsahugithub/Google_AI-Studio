@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { FiBook, FiCode } from 'react-icons/fi';
 import NativeSpeech from './assets/Native speech.png';
@@ -6,6 +5,7 @@ import LiveAudio from './assets/Live audio.png';
 import Explore from './assets/Explore.png';
 import NativeImage from './assets/Native image.png';
 import { Link } from 'react-router-dom';
+import RightSlide from './RightSlide';
 import {
   ClipboardList,
   Code2,
@@ -31,7 +31,9 @@ export default function Chat() {
   const [index, setIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
   const [hoveredIcon, setHoveredIcon] = useState(null);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
+ 
   const sentences = [
     "Generate a scavenger hunt for street food around the city of Seoul, Korea ➔|",
     "Create a detailed description of an alien planet ➔|",
@@ -55,7 +57,8 @@ export default function Chat() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1e1e1e] text-white p-4 md:p-8 rounded-[2rem] mr-18">
+    <div className="min-h-screen bg-[#1e1e1e] text-white p-4 md:p-8 rounded-[2rem] mr-1 lg:mr-16">
+
       {/* Top Bar with Chat Prompt and Icons */}
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-l">Chat Prompt</h1>
@@ -207,6 +210,8 @@ export default function Chat() {
           </div>
         </div>
       </div>
+
+
     </div>
   );
 }
