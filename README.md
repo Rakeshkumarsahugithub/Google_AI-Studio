@@ -1,13 +1,5 @@
 # ✨ Google AI Studio Clone
 
-<div align="center">
-  <img src="./screenshot.png" alt="Google AI Studio Clone" width="800"/>
-  
-  [![React](https://img.shields.io/badge/React-18.2.0-blue?logo=react)](https://reactjs.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3.0-06B6D4?logo=tailwindcss)](https://tailwindcss.com/)
-  [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-</div>
-
 A beautiful frontend clone of Google AI Studio built with modern web technologies, featuring:
 
 - 🎨 Pixel-perfect UI with Google's design language
@@ -38,9 +30,6 @@ A beautiful frontend clone of Google AI Studio built with modern web technologie
 
 ## 🏁 Getting Started
 
-### Prerequisites
-- Node.js ≥ 16
-- npm/yarn
 
 ### Installation
 
