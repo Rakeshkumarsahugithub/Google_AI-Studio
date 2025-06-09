@@ -345,62 +345,75 @@ export default function Chat() {
         <div className="w-full max-w-5xl px-1 md:px-2">
           <h3 className="text-sm md:text-base font-semibold mb-4 md:mb-6">What's new</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-            {[{
-              img: NativeSpeech,
-              title: "Native speech generation",
-              desc: "Generate high quality text to speech with Gemini",
-              link: "https://aistudio.google.com/generate-speech"
-            }, {
-              img: LiveAudio,
-              title: "Live audio-to-audio dialog",
-              desc: "Try Gemini's natural, real-time dialog with audio and video inputs",
-              to: "/stream"
-            }, {
-              img: NativeImage,
-              title: "Native image generation",
-              desc: "Interleaved text-and-image generation with Gemini 2.0 Flash",
-              to: "/stream"
-            }, {
-              img: Explore,
-              title: "Explore and co-develop apps",
-              desc: "See Gemini in action with interactive, open source examples",
-              link: "https://aistudio.google.com/apps"
-            }].map((item, idx) =>
-              item.to ? (
-                <Link
-                  key={idx}
-                  to={item.to}
-                  className="bg-[#2d2d2d] hover:bg-[#353535] transition p-3 md:p-4 rounded-2xl flex gap-3"
-                >
-                  <img src={item.img} alt={item.title} className="w-10 h-10 md:w-12 md:h-12 rounded-lg object-cover" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-200">{item.title}</p>
-                    <p className="text-xs text-gray-400 mt-1">{item.desc}</p>
-                  </div>
-                </Link>
-              ) : (
-                <a
-                  key={idx}
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#2d2d2d] hover:bg-[#353535] transition p-3 md:p-4 rounded-2xl flex gap-3 relative"
-                >
-                  <span className="absolute top-2 right-2 bg-[#98c0e6] text-blue-900 text-[10px] px-1 py-[1px] rounded font-medium">
-                    New
-                  </span>
-                  <img src={item.img} alt={item.title} className="w-10 h-10 md:w-12 md:h-12 rounded-lg object-cover" />
-                  <div>
-                    <p className="text-sm font-semibold text-gray-200">{item.title}</p>
-                    <p className="text-xs text-gray-400 mt-1">{item.desc}</p>
-                  </div>
-                </a>
-              )
-            )}
+           
+  {
+  [{
+    img: NativeSpeech,
+    title: "Native speech generation",
+    desc: "Generate high quality text to speech with Gemini",
+    link: "https://aistudio.google.com/generate-speech",
+    isNew: true
+  }, {
+    img: LiveAudio,
+    title: "Live audio-to-audio dialog",
+    desc: "Try Gemini's natural, real-time dialog with audio and video inputs",
+    to: "/stream",
+    isNew: true
+  }, {
+    img: NativeImage,
+    title: "Native image generation",
+    desc: "Interleaved text-and-image generation with Gemini 2.0 Flash",
+    to: "/stream",
+    isNew: false
+  }, {
+    img: Explore,
+    title: "Explore and co-develop apps",
+    desc: "See Gemini in action with interactive, open source examples",
+    link: "https://aistudio.google.com/apps",
+    isNew: false
+  }].map((item, idx) =>
+    item.to ? (
+      <Link
+        key={idx}
+        to={item.to}
+        className="bg-[#2d2d2d] hover:bg-[#353535] transition p-3 md:p-4 rounded-2xl flex gap-3 relative"
+      >
+        {item.isNew && (
+          <span className="absolute top-2 right-2 bg-[#98c0e6] text-blue-900 text-[10px] px-1 py-[1px] rounded font-medium">
+            New
+          </span>
+        )}
+        <img src={item.img} alt={item.title} className="w-10 h-10 md:w-12 md:h-12 rounded-lg object-cover" />
+        <div>
+          <p className="text-sm font-semibold text-gray-200">{item.title}</p>
+          <p className="text-xs text-gray-400 mt-1">{item.desc}</p>
+        </div>
+      </Link>
+    ) : (
+      <a
+        key={idx}
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-[#2d2d2d] hover:bg-[#353535] transition p-3 md:p-4 rounded-2xl flex gap-3 relative"
+      >
+        {item.isNew && (
+          <span className="absolute top-2 right-2 bg-[#98c0e6] text-blue-900 text-[10px] px-1 py-[1px] rounded font-medium">
+            New
+          </span>
+        )}
+        <img src={item.img} alt={item.title} className="w-10 h-10 md:w-12 md:h-12 rounded-lg object-cover" />
+        <div>
+          <p className="text-sm font-semibold text-gray-200">{item.title}</p>
+          <p className="text-xs text-gray-400 mt-1">{item.desc}</p>
+        </div>
+      </a>
+    )
+  )
+}
           </div>
         </div>
       </div>
     </div>
   );
 }
-
