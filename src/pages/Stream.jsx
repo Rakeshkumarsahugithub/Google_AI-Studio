@@ -16,7 +16,7 @@ export default function Stream() {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   return (
-    <div className="min-h-screen bg-[#1e1e1e] text-white p-0 rounded-[2rem] mr-18">
+    <div className="min-h-screen bg-[#1e1e1e] text-white p-4 md:p-8 rounded-[2rem] mr-1 lg:mr-16">
       <div className="flex-1 flex flex-col p-4">
         {/* Chat Prompt Section */}
         <div className="flex justify-between items-center mb-4">
@@ -50,32 +50,39 @@ export default function Stream() {
 
         {/* Input Box Section */}
         <div className="flex flex-col">
-          <div className="flex items-center bg-[#2a2a2a] rounded-full px-6 py-3 mb-4">
+          <div className="flex items-center bg-[#2a2a2a] rounded-full px-3 py-2 md:px-6 md:py-3 mb-4 w-full max-w-xs md:max-w-full mx-auto">
             <input
               value={prompt}
               onChange={(e) => setPrompt(e.target.value)}
               placeholder="Start typing a prompt"
-              className="flex-1 bg-transparent text-sm px-2 py-3 focus:outline-none rounded-full"
+              className="flex-1 bg-transparent text-xs md:text-sm px-1 md:px-2 py-1 md:py-3 focus:outline-none rounded-full"
             />
-            <button className="flex items-center gap-1 bg-[#3c3c3c] hover:bg-[#505050] text-sm px-4 py-1 rounded-full ml-2">
-
-              Run <span className="ml-1 text-xs text-gray-400">Ctrl ⤶</span>
+            <button className="flex items-center gap-1 bg-[#16213e] hover:bg-[#22336b] text-xs md:text-sm px-2 md:px-4 py-1 md:py-1 rounded-full ml-2">
+              Run <span className="ml-1 text-[10px] md:text-xs text-gray-400">Ctrl ⤶</span>
             </button>
           </div>
         </div>
 
         {/* Action Buttons Section */}
-        <div className="flex justify-center gap-4 mt-4">
-
-          <button className="flex items-center gap-2 text-white border-[1px] border-[#8ab4f8] px-5 py-2 rounded-3xl hover:border-2 hover:border-[#8ab4f8]">
+        <div className="flex flex-col gap-3 mt-4 w-full max-w-xs md:max-w-md mx-auto md:flex-row md:justify-center md:gap-4">
+          <button
+            style={{ background: 'rgb(1,13,61)', border: '1.5px solid rgb(35,145,235)' }}
+            className="flex items-center justify-center gap-2 text-white px-4 py-2 md:px-5 md:py-2 rounded-full text-sm md:text-base w-full md:w-auto"
+          >
             <FiMic className="group-hover:text-[white]" />
             Talk
           </button>
-          <button className="flex items-center gap-2 text-white border-[1px] border-[#8ab4f8] px-5 py-2 rounded-3xl hover:border-2 hover:border-[#8ab4f8]">
+          <button
+            style={{ background: 'rgb(1,13,61)', border: '1.5px solid rgb(35,145,235)' }}
+            className="flex items-center justify-center gap-2 text-white px-4 py-2 md:px-5 md:py-2 rounded-full text-sm md:text-base w-full md:w-auto"
+          >
             <FiVideo className="group-hover:text-[white]" />
             Webcam
           </button>
-          <button className="flex items-center gap-2 text-white border-[1px] border-[#8ab4f8] px-5 py-2 rounded-3xl hover:border-2 hover:border-[#8ab4f8]">
+          <button
+            style={{ background: 'rgb(1,13,61)', border: '1.5px solid rgb(35,145,235)' }}
+            className="flex items-center justify-center gap-2 text-white px-4 py-2 md:px-5 md:py-2 rounded-full text-sm md:text-base w-full md:w-auto"
+          >
             <FiMonitor className="group-hover:text-[white]" />
             Share Screen
           </button>
