@@ -4,7 +4,7 @@
   <img src="./screenshot.png" alt="Google AI Studio Clone" width="800"/>
   <br/>
   <!-- Live Demo link placeholder -->
-  <a href="https://your-live-demo-link.com"><strong>Live Demo 🚀</strong></a>
+  <a href="https://google-ai-studio-lemon.vercel.app"><strong>Live Demo 🚀</strong></a>
   <br/><br/>
   <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/React-18.2.0-blue?logo=react"></a>
   <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-3.3.0-06B6D4?logo=tailwindcss"></a>
