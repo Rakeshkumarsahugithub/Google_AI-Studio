@@ -38,18 +38,14 @@
 
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
-import { useState } from "react";
 import Sidebar from "./Sidebar";
 import Sidebar2 from "./Sidebar2";
-import SidebarCombined from "./SidebarCombined"; // mobile version
 import TopNav from "./TopNav";
 import SettingsPanel from "./SettingPanel";
 import useIsMobile from "./UseIsMobile";
 
 const LayoutWrapper = ({ children }) => {
   const location = useLocation();
-  const isMobile = useIsMobile();
-  const path = location.pathname;
   const isMobile = useIsMobile();
   const path = location.pathname;
 
@@ -75,7 +71,6 @@ const LayoutWrapper = ({ children }) => {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      {renderSidebar()}
       {renderSidebar()}
       <div className="flex-1 flex flex-col bg-studioGray">
         <TopNav
