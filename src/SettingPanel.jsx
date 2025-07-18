@@ -569,6 +569,8 @@ const SettingsPanel = ({ isOpen, onClose }) => {
 
         {/* Divider */}
         <hr className="border-[#2F2F33] mb-4" />
+        {/* Divider */}
+        <hr className="border-[#2F2F33] mb-4" />
 
         {/* Thinking Section */}
         <div className="text-sm text-[#E3E3E3] mb-2 font-medium">Thinking</div>
@@ -599,6 +601,8 @@ const SettingsPanel = ({ isOpen, onClose }) => {
           </label>
         </div>
 
+        {/* Divider */}
+        <hr className="border-[#2F2F33] mb-4" />
         {/* Divider */}
         <hr className="border-[#2F2F33] mb-4" />
 
@@ -636,6 +640,8 @@ const SettingsPanel = ({ isOpen, onClose }) => {
           </div>
         )}
 
+        {/* Divider */}
+        <hr className="border-[#2F2F33] mb-4" />
         {/* Divider */}
         <hr className="border-[#2F2F33] mb-4" />
 

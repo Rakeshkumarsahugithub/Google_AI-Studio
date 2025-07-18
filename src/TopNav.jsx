@@ -50,7 +50,11 @@ export default function TopNav({ isSettingPanelOpen, toggleSettingPanel }) {
       {/* Optional Logo or Title */}
       <div className="text-white font-semibold text-lg hidden sm:block">
         {/* Logo or branding */}
+        {/* Logo or branding */}
       </div>
+
+      {/* Main nav items - hidden on mobile */}
+      <div className="hidden sm:flex items-center gap-4 flex-grow justify-end ml-auto">
 
       {/* Main nav items - hidden on mobile */}
       <div className="hidden sm:flex items-center gap-4 flex-grow justify-end ml-auto">
@@ -156,7 +160,14 @@ export default function TopNav({ isSettingPanelOpen, toggleSettingPanel }) {
           <RightSlide toggleSettingPanel={toggleSettingPanel} />
         </div>
       )}
+      {/* RightSlide Panel */}
+      {!isDashboard && (
+        <div className="absolute top-0 lg:right-7 sm:right-10">
+          <RightSlide toggleSettingPanel={toggleSettingPanel} />
+        </div>
+      )}
     </div>
   );
 }
+
 

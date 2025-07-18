@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   LuMessageSquare,
@@ -35,7 +34,7 @@ const dashboardLinks = [
   { name: "Changelog", icon: MdListAlt, to: "https://aistudio.google.com/changelog" }
 ];
 
-export default function Sidebar() {
+const SidebarCombined = () => {
   const { pathname } = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [studioOpen, setStudioOpen] = useState(true);
@@ -75,30 +74,18 @@ export default function Sidebar() {
   return (
     <>
       {/* Toggle Button for Mobile */}
-      {!isOpen && (
-        <button
-          onClick={toggleSidebar}
-          className="md:hidden fixed top-4 left-4 z-50 text-white bg-[#1e1e1e] p-2 rounded-full"
-        >
-          <LuMenu size={24} />
-        </button>
-      )}
+      <button
+        onClick={toggleSidebar}
+        className="md:hidden fixed top-4 left-4 z-50 text-white bg-[#1e1e1e] p-2 rounded-full"
+      >
+        {isOpen ? <LuX size={24} /> : <LuMenu size={24} />}
+      </button>
 
       {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-64 bg-[#151617] text-white flex flex-col py-6 px-4 z-40 transition-transform duration-300 transform
         ${isOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 md:static`}
-        style={{ maxHeight: '100vh' }}
       >
-        {/* Close Button for Mobile - positioned on the right side of sidebar */}
-        <button
-          onClick={toggleSidebar}
-          className="md:hidden absolute top-4 right-2 p-2 bg-white/10 hover:bg-white/20 rounded-full text-white transition-colors duration-200 shadow-lg z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
-          aria-label="Close sidebar"
-        >
-          <LuX size={28} />
-        </button>
-
         {/* Logo */}
         <h1 className="text-2xl font-semibold mb-6 text-[#b8d6f9]">
           Google <span className="text-[#8ab4f8]">AI Studio</span>
@@ -113,69 +100,38 @@ export default function Sidebar() {
           Get API key
         </Link>
 
-        {/* Scrollable content */}
-        <div className="flex-1 min-h-0 overflow-y-auto">
-          {/* Studio Dropdown */}
-          <div>
-            <button
-              onClick={() => setStudioOpen(!studioOpen)}
-              className="flex items-center justify-between w-full px-4 py-2 text-xs text-gray-400"
-            >
-              <span>Studio</span>
-              {studioOpen ? <LuChevronDown /> : <LuChevronRight />}
-            </button>
-            {studioOpen && <nav className="flex flex-col gap-1 mb-4">{renderLinks(studioLinks)}</nav>}
-          </div>
-
-          {/* Documentation Link (Standalone) */}
-          <a
-            href="https://aistudio.google.com/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-4 py-2 mb-4 text-sm text-gray-400 hover:text-white hover:bg-[#2a2a2a] rounded-xl"
+        {/* Studio Dropdown */}
+        <div>
+          <button
+            onClick={() => setStudioOpen(!studioOpen)}
+            className="flex items-center justify-between w-full px-4 py-2 text-xs text-gray-400"
           >
-            Documentation ↗
-          </a>
+            <span>Studio</span>
+            {studioOpen ? <LuChevronDown /> : <LuChevronRight />}
+          </button>
+          {studioOpen && <nav className="flex flex-col gap-1 mb-4">{renderLinks(studioLinks)}</nav>}
+        </div>
 
-          {/* Dashboard Dropdown */}
-          <div>
-            <button
-              onClick={() => setDashboardOpen(!dashboardOpen)}
-              className="flex items-center justify-between w-full px-4 py-2 text-xs text-gray-400"
-            >
-              <span>Dashboard</span>
-              {dashboardOpen ? <LuChevronDown /> : <LuChevronRight />}
-            </button>
-            {dashboardOpen && <nav className="flex flex-col gap-1">{renderLinks(dashboardLinks)}</nav>}
-          </div>
-        </div>
-        {/* Footer for desktop */}
-        <div className="hidden md:block mt-auto px-4 text-sm text-gray-400 pt-6">
-          <p>
-            Built with{" "}
-            <a
-              href="https://react.dev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#8ab4f8] hover:underline"
-            >
-              React
-            </a>
-          </p>
-        </div>
-        {/* Footer for mobile (optional) */}
-        <div className="md:hidden mt-auto px-4 text-xs text-gray-400 pt-4">
-          <p>
-            This model is not stable and may not be suitable for production use.{' '}
-            <a
-              href="https://ai.google.dev/gemini-api/docs/models#model-versions"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#6497d0] hover:underline"
-            >
-              Learn more.
-            </a>
-          </p>
+        {/* Documentation Link (Standalone) */}
+        <a
+          href="https://aistudio.google.com/docs"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 px-4 py-2 mb-4 text-sm text-gray-400 hover:text-white hover:bg-[#2a2a2a] rounded-xl"
+        >
+          Documentation ↗
+        </a>
+
+        {/* Dashboard Dropdown */}
+        <div>
+          <button
+            onClick={() => setDashboardOpen(!dashboardOpen)}
+            className="flex items-center justify-between w-full px-4 py-2 text-xs text-gray-400"
+          >
+            <span>Dashboard</span>
+            {dashboardOpen ? <LuChevronDown /> : <LuChevronRight />}
+          </button>
+          {dashboardOpen && <nav className="flex flex-col gap-1">{renderLinks(dashboardLinks)}</nav>}
         </div>
       </div>
 
@@ -185,7 +141,6 @@ export default function Sidebar() {
       )}
     </>
   );
-}
+};
 
-
-
+export default SidebarCombined;

@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-
-import { FiBook, FiCode, FiMic, FiVideo, FiMonitor } from 'react-icons/fi';
-import {
-  ClipboardList,
-} from 'lucide-react';
+import { FiCode, FiMic, FiVideo, FiMonitor } from 'react-icons/fi';
+import { ClipboardList } from 'lucide-react';
 
 const icons = [
   { icon: <ClipboardList size={18} />, tooltip: 'System instruction' },
-  { icon: <FiCode />, tooltip: 'Get SDK code to chat with Gemini' },
+  { icon: <FiCode size={18} />, tooltip: 'Get SDK code to chat with Gemini' },
 ];
-
 
 export default function Stream() {
   const [prompt, setPrompt] = useState('');
@@ -25,13 +21,13 @@ export default function Stream() {
             {icons.map((item, index) => (
               <div
                 key={index}
-                className="relative p-2 rounded-full hover:bg-gray-700 cursor-pointer"
+                className="relative p-1 sm:p-2 rounded-full hover:bg-gray-700 cursor-pointer"
                 onMouseEnter={() => setHoveredIcon(index)}
                 onMouseLeave={() => setHoveredIcon(null)}
               >
                 {item.icon}
                 {hoveredIcon === index && (
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded whitespace-nowrap z-10">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 sm:mt-2 px-2 py-1 bg-gray-800 text-white text-xs rounded whitespace-nowrap z-10">
                     {item.tooltip}
                   </div>
                 )}
@@ -40,15 +36,15 @@ export default function Stream() {
           </div>
         </div>
 
-        {/* Line separator below Chat Prompt */}
-        <div className="border-b border-gray-600 mb-[100px]"></div> {/* 100px gap */}
+        {/* Divider */}
+        <div className="border-b border-gray-600"></div>
 
-        {/* Welcome Section */}
-        <h2 className="text-4xl font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-900 mb-10">
+        {/* Title */}
+        <h2 className="text-2xl sm:text-4xl font-semibold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-100 via-blue-500 to-blue-900 mb-4 sm:mb-10">
           Talk to Gemini live
         </h2>
 
-        {/* Input Box Section */}
+        {/* Input */}
         <div className="flex flex-col">
           <div className="flex items-center bg-[#2a2a2a] rounded-full px-3 py-2 md:px-6 md:py-3 mb-4 w-full max-w-xs md:max-w-full mx-auto">
             <input
@@ -91,3 +87,4 @@ export default function Stream() {
     </div>
   );
 }
+
